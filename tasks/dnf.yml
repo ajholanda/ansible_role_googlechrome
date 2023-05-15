@@ -1,14 +1,16 @@
 ---
-- name: Add repository URL to sources list
+- name: Make Google Chrome repo {{ googlechrome_state }}
   yum_repository:
     name: googlechrome
     description: googlechrome
     baseurl: "{{ googlechrome_yum_repository_url }}"
-    gpgcheck: yes
+    gpgcheck: true
     gpgkey:  "{{ googlechrome_linux_signing_key_url }}"
+    state: "{{ googlechrome_state }}"
   tags: googlechrome
 
-- name: Install Google Chrome
+- name: Make Google Chrome {{ googlechrome_state }}
   dnf: 
     name: "google-chrome-stable"
+    state: "{{ googlechrome_state }}"
   tags: googlechrome
