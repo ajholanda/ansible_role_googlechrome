@@ -8,9 +8,9 @@ None.
 
 ## Role Variables
 
-- `googlechrome_linux_signing_key_url`:  GPG key for Linux systems.
-- `googlechrome_yum_repository_url`: Yum repository.
-- `googlechrome_apt_repository_url`: Apt repository to add in the sources list.
+- `googlechrome_linux_signing_key_url`: GPG key for Linux systems.
+- `googlechrome_yum_repository_url`: yum repository.
+- `googlechrome_apt_repository_url`: apt repository to add in the sources list.
 - `googlechrome_state`: desired state after running package manager task.
 
 ## Dependencies
