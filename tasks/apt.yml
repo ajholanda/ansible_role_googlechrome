@@ -1,9 +1,14 @@
 ---
 - name: Install dependencies
   apt:
-    pkg: [ca-certificates-java, fonts-liberation,
-          java-common, libpcsclite1, gpg,
-          libappindicator3-0.1-cil-dev, openjdk-11-jre-headless]
+    pkg: 
+      - ca-certificates-java
+      - fonts-liberation
+      - java-common 
+      - libpcsclite1
+      - gpg
+      - libappindicator3-0.1-cil-dev
+      - openjdk-11-jre-headless
     state: fixed
   when: googlechrome_state != "absent"
   tags: googlechrome
