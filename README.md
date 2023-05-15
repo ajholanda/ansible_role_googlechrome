@@ -29,10 +29,10 @@ To uninstall
 
 ```
     - hosts: all
-      roles:
-        - ajholanda.googlechrome
       vars:
         googlechrome_state: absent
+      roles:
+        - ajholanda.googlechrome
 ```
 ## License
 
