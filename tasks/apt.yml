@@ -4,17 +4,23 @@
     pkg: [ca-certificates-java, fonts-liberation,
           java-common, libpcsclite1,
           libappindicator3-0.1-cil-dev, openjdk-11-jre-headless]
-    update_cache: yes
     state: fixed
   tags: googlechrome
 
-- name: Add repository
-  apt_repository:
-    repo: "{{ googlechrome_apt_repository_url }}"
-    filename: google-chrome
+- name: Add repository key
+  apt_key:
+    url: "{{ googlechrome_linux_signing_key_url }}"
     state: present
   tags: googlechrome
 
-- name: Install
-  apt: name="google-chrome-stable" update_cache=yes
+- name: Add repository URL to sources list
+  apt_repository:
+    repo: "{{ googlechrome_apt_repository_url }}"
+  tags: googlechrome
+
+- name: Install Google Chrome
+  apt: 
+    name: "google-chrome-stable"
+    update_cache: yes
+    force_apt_get: yes
   tags: googlechrome
