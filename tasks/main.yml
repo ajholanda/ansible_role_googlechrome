@@ -3,6 +3,7 @@
   include_tasks: "{{ ansible_pkg_mgr }}.yml"
   when: |
     ansible_pkg_mgr == "apt"
+    or ansible_pkg_mgr == "dnf"
   tags: ajholanda.googlechrome
 
 - name: Install Google Chrome on Windows
