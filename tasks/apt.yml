@@ -1,0 +1,6 @@
+---
+- name: Install from deb file
+  ansible.builtin.apt:
+    deb: "{{ googlechrome_deb_file_url }}"
+  tags: googlechrome
+
