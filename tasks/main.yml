@@ -2,11 +2,12 @@
 - name: Include {{ ansible_pkg_mgr }} tasks
   include_tasks: "{{ ansible_pkg_mgr }}.yml"
   when: |
-    ansible_pkg_mgr == "apt"
+    ansible_pkg_mgr is defined
+    and ansible_pkg_mgr == "apt"
     or ansible_pkg_mgr == "dnf"
-  tags: ajholanda.googlechrome
+  tags: googlechrome
 
 - name: Install Google Chrome on Windows
   win_chocolatey: name=googlechrome
-  when: ansible_system|lower == "windows"
-  tags: ajholanda.googlechrome
+  when: ansible_system|lower == "win32nt"
+  tags: googlechrome
