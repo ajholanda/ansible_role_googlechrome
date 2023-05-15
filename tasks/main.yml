@@ -1,0 +1,16 @@
+---
+- name: Get stats of a file
+  ansible.builtin.stat:
+    path: "{{ ansible_pkg_mgr }}.yml"
+    register: pkg
+  tags: googlechrome
+
+- name: Fail if package manager is not supported
+  ansible.builtin.fail:
+    msg: "Package manager {{ ansible_pkg_mgr }} is not supported"
+  when: not st.stat.isreg
+  tags: googlechrome
+
+- name: Include {{ ansible_pkg_mgr }} tasks
+  include_tasks: "{{ ansible_pkg_mgr }}.yml"
+  tags: googlechrome
