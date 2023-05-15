@@ -1,10 +1,10 @@
 ---
 - name: Install dependencies
   apt:
-    pkg: 
+    pkg:
       - ca-certificates-java
       - fonts-liberation
-      - java-common 
+      - java-common
       - libpcsclite1
       - gpg
       - libappindicator3-0.1-cil-dev
@@ -26,7 +26,7 @@
   tags: googlechrome
 
 - name: Make Google Chrome {{ googlechrome_state }}
-  apt: 
+  apt:
     name: "google-chrome-stable"
     state: "{{ googlechrome_state }}"
     autoremove: true
