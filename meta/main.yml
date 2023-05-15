@@ -10,13 +10,12 @@ galaxy_info:
 
   platforms:
     - name: Debian
-      version:
-        - all
+      versions:
+        - bullseye
     - name: EL
       versions:
         - 9
         - 8
-        - 7
     - name: Fedora
       versions:
         - all
@@ -25,7 +24,7 @@ galaxy_info:
         - 15.4
     - name: Ubuntu
       versions:
-        - all
+        - focal
     - name: Windows
       versions:
         - 11
