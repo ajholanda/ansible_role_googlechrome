@@ -2,7 +2,7 @@
 - name: Get stats of a file
   ansible.builtin.stat:
     path: "{{ ansible_pkg_mgr }}.yml"
-    register: pkg
+  register: pkg
   tags: googlechrome
 
 - name: Fail if package manager is not supported
