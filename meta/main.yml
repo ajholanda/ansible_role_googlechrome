@@ -9,12 +9,6 @@ galaxy_info:
   min_ansible_version: 2.8
 
   platforms:
-    - name: Fedora
-      versions:
-        - all
-    - name: Ubuntu
-      versions:
-        - all
     - name: Debian
       version:
         - all
@@ -23,8 +17,17 @@ galaxy_info:
         - 9
         - 8
         - 7
+    - name: Fedora
+      versions:
+        - all
+    - name: opensuse
+      versions:
+        - 15.4
+    - name: Ubuntu
+      versions:
+        - all
     - name: Windows
-      version:
+      versions:
         - 11
         - 10
 
