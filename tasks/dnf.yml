@@ -10,7 +10,7 @@
   tags: googlechrome
 
 - name: Make Google Chrome {{ googlechrome_state }}
-  dnf: 
+  dnf:
     name: "google-chrome-stable"
     state: "{{ googlechrome_state }}"
   tags: googlechrome
