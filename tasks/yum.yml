@@ -1,0 +1,20 @@
+- name: Add yum signing key
+  ansible.builtin.rpm_key:
+    key: "{{ googlechrome_linux_signing_key_url }}"
+    state: present
+  tags: googlechrome
+
+- name: Add repository into repo.d list
+  ansible.builtin.yum_repository:
+    name: google-chrome
+    description: google-chrome repository
+    baseurl: "{{ googlechrome_yum_repository_url }}" 
+    enabled: true
+    gpgcheck: true
+      #    gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+  tags: googlechrome
+
+- name: Install google-chrome-stable
+    ansible.builtin.yum:
+    name: "google-chrome-stable"
+  tags: googlechrome

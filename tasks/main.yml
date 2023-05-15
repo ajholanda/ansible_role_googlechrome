@@ -8,7 +8,7 @@
 - name: Fail if package manager is not supported
   ansible.builtin.fail:
     msg: "Package manager {{ ansible_pkg_mgr }} is not supported"
-  when: not st.stat.isreg
+  when: not pkg.stat.isreg
   tags: googlechrome
 
 - name: Include {{ ansible_pkg_mgr }} tasks
