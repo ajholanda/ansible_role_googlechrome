@@ -1,6 +1,6 @@
 ---
 - name: install dependencies
-    apt:
+  apt:
     pkg: [ca-certificates-java, fonts-liberation,
           java-common, libpcsclite1,
           libappindicator3-0.1-cil-dev, openjdk-11-jre-headless]
