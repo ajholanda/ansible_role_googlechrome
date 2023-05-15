@@ -1,5 +1,5 @@
 ---
-- name: install dependencies
+- name: Install dependencies
   apt:
     pkg: [ca-certificates-java, fonts-liberation,
           java-common, libpcsclite1,
@@ -8,20 +8,13 @@
     state: fixed
   tags: googlechrome
 
-- name: add repository
-  apt_repository: "{{ googlechrome_apt_repository_url }}"
-    repo:
+- name: Add repository
+  apt_repository:
+    repo: "{{ googlechrome_apt_repository_url }}"
     filename: google-chrome
     state: present
   tags: googlechrome
 
-- name: install/update
+- name: Install
   apt: name="google-chrome-stable" update_cache=yes
   tags: googlechrome
-
-- name: Install from deb file
-  ansible.builtin.apt:
-    deb: "{{ googlechrome_deb_file_url }}"
-    update_cache: yes
-  tags: googlechrome
-
