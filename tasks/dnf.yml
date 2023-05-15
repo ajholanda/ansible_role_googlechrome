@@ -1,0 +1,14 @@
+---
+- name: Add repository URL to sources list
+  yum_repository:
+    name: googlechrome
+    description: googlechrome
+    baseurl: "{{ googlechrome_yum_repository_url }}"
+    gpgcheck: yes
+    gpgkey:  "{{ googlechrome_linux_signing_key_url }}"
+  tags: googlechrome
+
+- name: Install Google Chrome
+  dnf: 
+    name: "google-chrome-stable"
+  tags: googlechrome
