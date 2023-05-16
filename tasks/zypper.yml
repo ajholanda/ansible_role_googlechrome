@@ -6,7 +6,7 @@
   tags: googlechrome
 
 - name: Make repository {{ googlechrome_state }} in the list
-  community.general.zypper_repository:
+  zypper_repository:
     name: googlechrome
     description: googlechrome repository
     repo: "{{ googlechrome_yum_repository_url }}"
@@ -16,7 +16,7 @@
   tags: googlechrome
 
 - name: Make Google Chrome {{ googlechrome_state }}
-  community.general.zypper:
+  zypper:
     name: "google-chrome-stable"
     state: "{{ googlechrome_state }}"
     update_cache: true
