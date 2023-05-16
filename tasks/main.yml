@@ -1,5 +1,5 @@
 ---
-- name: Include {{ ansible_pkg_mgr }} tasks
+- name: Include {{ ansible_pkg_mgr | default('Linux') }} tasks
   include_tasks: "{{ ansible_pkg_mgr }}.yml"
   when: |
     ansible_pkg_mgr is defined
