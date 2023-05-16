@@ -30,6 +30,5 @@
     name: "google-chrome-stable"
     state: "{{ googlechrome_state }}"
     autoremove: true
-    update_cache: true
     force_apt_get: true
   tags: googlechrome
