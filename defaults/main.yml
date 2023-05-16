@@ -2,3 +2,4 @@
 googlechrome_linux_signing_key_url: https://dl.google.com/linux/linux_signing_key.pub
 googlechrome_yum_repository_url: http://dl.google.com/linux/chrome/rpm/stable/x86_64
 googlechrome_apt_repository_url: "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main"
+googlechrome_state: present
