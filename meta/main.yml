@@ -1,7 +1,7 @@
 galaxy_info:
   author: Adriano J. Holanda
   role_name: googlechrome
-  description: Install Google Chrome for Linux or Windows
+  description: Install or uninstall Google Chrome for Linux or Windows
   company: University of São Paulo - USP, Brazil
 
   license: MIT
