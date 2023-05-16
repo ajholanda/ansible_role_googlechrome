@@ -1,6 +1,6 @@
 # Ansible role googlechrome
 
-Yet another Ansible role to manage Google Chrome
+Yet another Ansible role to manage Google Chrome installation
 
 ## Requirements
 
