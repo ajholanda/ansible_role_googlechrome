@@ -1,11 +1,11 @@
 ---
-- name: Make repository key {{ googlechrome_state }}
+- name: Add repository key
   rpm_key:
     key: "{{ googlechrome_linux_signing_key_url }}"
   when: googlechrome_state != "absent"
   tags: googlechrome
 
-- name: Make repository {{ googlechrome_state }} in the list
+- name: Manage repository in the list
   zypper_repository:
     name: googlechrome
     description: googlechrome repository

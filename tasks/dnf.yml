@@ -1,5 +1,5 @@
 ---
-- name: Make Google Chrome repo {{ googlechrome_state }}
+- name: Manage repository in the list
   yum_repository:
     name: googlechrome
     description: googlechrome
