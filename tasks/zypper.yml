@@ -13,6 +13,7 @@
     auto_import_keys: true
     state: "{{ googlechrome_state }}"
     runrefresh: true
+  when: googlechrome_state in ["absent", "present"]
   tags: googlechrome
 
 - name: Make Google Chrome {{ googlechrome_state }}

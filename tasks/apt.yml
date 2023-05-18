@@ -23,6 +23,7 @@
   apt_repository:
     repo: "{{ googlechrome_apt_repository_url }}"
     state: "{{ googlechrome_state }}"
+  when: googlechrome_state in ["absent", "present"]
   tags: googlechrome
 
 - name: Make Google Chrome {{ googlechrome_state }}
