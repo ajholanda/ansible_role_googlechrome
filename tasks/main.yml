@@ -11,4 +11,4 @@
 - name: Install Google Chrome on Windows
   win_chocolatey: name=googlechrome
   when: ansible_system|lower == "win32nt"
-  tags: googlechrome
+  tags: googlechrome, win_chocolatey
