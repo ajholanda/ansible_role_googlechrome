@@ -8,7 +8,7 @@
     or ansible_pkg_mgr == "zypper")
   tags: googlechrome
 
-- name: Install Google Chrome on Windows
+- name: Make Google Chrome on Windows {{ googlechrome_state }}
   win_chocolatey:
     name: googlechrome
     state: "{{ googlechrome_state }}"
