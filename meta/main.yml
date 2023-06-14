@@ -14,7 +14,8 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - bullseye
+        - bookworm
+        - buster
     - name: EL
       versions:
         - 9
