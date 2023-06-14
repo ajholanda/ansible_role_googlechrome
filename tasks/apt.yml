@@ -7,7 +7,7 @@
       - java-common
       - libpcsclite1
       - gpg
-      - openjdk-11-jre-headless
+      - openjdk-17-jre-headless
     state: fixed
   when: googlechrome_state != "absent"
   tags: googlechrome
