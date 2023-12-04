@@ -9,6 +9,7 @@
   tags: googlechrome
 
 - name: Make Google Chrome on Windows {{ googlechrome_state }}
+  ignore_errors: true
   win_chocolatey:
     name: googlechrome
     state: "{{ googlechrome_state }}"
