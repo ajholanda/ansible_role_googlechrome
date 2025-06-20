@@ -1,17 +1,17 @@
 ---
 - name: Manage repository in the list
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: googlechrome
     description: googlechrome
     baseurl: "{{ googlechrome_yum_repository_url }}"
     gpgcheck: true
-    gpgkey:  "{{ googlechrome_linux_signing_key_url }}"
+    gpgkey: "{{ googlechrome_linux_signing_key_url }}"
     state: "{{ googlechrome_state }}"
   when: googlechrome_state in ["absent", "present"]
   tags: googlechrome
 
 - name: Make Google Chrome {{ googlechrome_state }}
-  dnf:
+  ansible.builtin.dnf:
     name: "google-chrome-stable"
     state: "{{ googlechrome_state }}"
   tags: googlechrome

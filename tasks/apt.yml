@@ -1,6 +1,6 @@
 ---
 - name: Install dependencies
-  apt:
+  ansible.builtin.apt:
     pkg:
       - ca-certificates-java
       - fonts-liberation
@@ -13,20 +13,20 @@
   tags: googlechrome
 
 - name: Add repository key
-  apt_key:
+  ansible.builtin.apt_key:
     url: "{{ googlechrome_linux_signing_key_url }}"
   when: googlechrome_state != "absent"
   tags: googlechrome
 
 - name: Manage repository URL in the sources list
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "{{ googlechrome_apt_repository_url }}"
     state: "{{ googlechrome_state }}"
   when: googlechrome_state in ["absent", "present"]
   tags: googlechrome
 
 - name: Make Google Chrome {{ googlechrome_state }}
-  apt:
+  ansible.builtin.apt:
     name: "google-chrome-stable"
     state: "{{ googlechrome_state }}"
     autoremove: true

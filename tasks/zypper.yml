@@ -1,12 +1,12 @@
 ---
 - name: Add repository key
-  rpm_key:
+  ansible.builtin.rpm_key:
     key: "{{ googlechrome_linux_signing_key_url }}"
   when: googlechrome_state != "absent"
   tags: googlechrome
 
 - name: Manage repository in the list
-  zypper_repository:
+  community.general.zypper_repository:
     name: googlechrome
     description: googlechrome repository
     repo: "{{ googlechrome_yum_repository_url }}"
@@ -17,7 +17,7 @@
   tags: googlechrome
 
 - name: Make Google Chrome {{ googlechrome_state }}
-  zypper:
+  community.general.zypper:
     name: "google-chrome-stable"
     state: "{{ googlechrome_state }}"
     update_cache: true

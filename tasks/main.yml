@@ -1,6 +1,6 @@
 ---
-- name: Include {{ ansible_pkg_mgr | default('Linux') }} tasks
-  include_tasks: "{{ ansible_pkg_mgr }}.yml"
+- name: Include tasks for {{ ansible_pkg_mgr | default('Linux') }}
+  ansible.builtin.include_tasks: "{{ ansible_pkg_mgr }}.yml"
   when: |
     ansible_pkg_mgr is defined
     and (ansible_pkg_mgr == "apt"
@@ -9,8 +9,8 @@
   tags: googlechrome
 
 - name: Make Google Chrome on Windows {{ googlechrome_state }}
-  ignore_errors: true
-  win_chocolatey:
+  failed_when: false
+  chocolatey.chocolatey.win_chocolatey:
     name: googlechrome
     state: "{{ googlechrome_state }}"
   when: ansible_system|lower == "win32nt"
