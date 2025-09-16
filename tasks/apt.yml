@@ -14,7 +14,7 @@
 - name: Add repository key
   ansible.builtin.get_url:
     url: "{{ googlechrome_linux_signing_key_url }}"
-    dest: /usr/share/keyrings/example-archive-keyring.gpg
+    dest: "{{ googlechrome_apt_key_path }}"
   when: googlechrome_state != "absent"
   tags: googlechrome
 
