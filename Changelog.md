@@ -1,9 +1,10 @@
 # Changes by release
 
-## 0.6.0 unreleasead
+## 0.6.0 2026-02-13
 
-- Add variable `googlechrome_apt_key_path` to set key path for Chrome apt repository.
-- Use `get_url` instead of `apt_key`.
+- Install Google Chrome using a remote .deb package on Debian.
+- ~Add variable `googlechrome_apt_key_path` to set key path for Chrome apt repository.~
+- ~Use `get_url` instead of `apt_key`.~
 - Delete package `openjdk-17-jre-headless` from apt list.
 
 ## 0.5.0 2025-09-16
