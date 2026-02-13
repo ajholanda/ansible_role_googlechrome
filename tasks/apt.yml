@@ -1,4 +1,10 @@
 ---
+- name: Stat google-chrome executable
+  stat:
+    path: /usr/bin/google-chrome
+  register: gc_exec
+  tags: googlechrome
+
 - name: Install dependencies
   ansible.builtin.apt:
     pkg:
@@ -11,24 +17,15 @@
   when: googlechrome_state != "absent"
   tags: googlechrome
 
-- name: Add repository key
-  ansible.builtin.get_url:
-    url: "{{ googlechrome_linux_signing_key_url }}"
-    dest: "{{ googlechrome_apt_key_path }}"
-  when: googlechrome_state != "absent"
+- name: Install Google Chrome
+  apt:
+    deb: http://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  when: not gc_exec.stat.exists and googlechrome_state == "present"
   tags: googlechrome
 
-- name: Manage repository URL in the sources list
-  ansible.builtin.apt_repository:
-    repo: "{{ googlechrome_apt_repository_url }}"
-    state: "{{ googlechrome_state }}"
-  when: googlechrome_state in ["absent", "present"]
-  tags: googlechrome
-
-- name: Make Google Chrome {{ googlechrome_state }}
+- name: Uninstall Google Chrome
   ansible.builtin.apt:
-    name: "google-chrome-stable"
-    state: "{{ googlechrome_state }}"
-    autoremove: true
-    force_apt_get: true
+    name: google-chrome-stable
+    state: absent
+  when: googlechrome_state == "absent"
   tags: googlechrome
