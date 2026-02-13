@@ -14,7 +14,7 @@
       - libpcsclite1
       - gpg
     state: fixed
-  when: googlechrome_state != "absent"
+  when: not gc_exec.stat.exists and googlechrome_state != "absent"
   tags: googlechrome
 
 - name: Install Google Chrome
