@@ -1,11 +1,11 @@
 ---
-- name: Include tasks for {{ ansible_pkg_mgr | default('Linux') }}
-  ansible.builtin.include_tasks: "{{ ansible_pkg_mgr }}.yml"
+- name: Include tasks for {{ ansible_facts['pkg_mgr'] | default('Linux') }}
+  ansible.builtin.include_tasks: "{{ ansible_facts['pkg_mgr'] }}.yml"
   when: |
-    ansible_pkg_mgr is defined
-    and (ansible_pkg_mgr == "apt"
-    or ansible_pkg_mgr == "dnf"
-    or ansible_pkg_mgr == "zypper")
+    ansible_facts['pkg_mgr'] is defined
+    and (ansible_facts['pkg_mgr'] == "apt"
+    or ansible_facts['pkg_mgr'] == "dnf"
+    or ansible_facts['pkg_mgr'] == "zypper")
   tags: googlechrome
 
 - name: Make Google Chrome on Windows {{ googlechrome_state }}
