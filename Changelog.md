@@ -1,5 +1,9 @@
 # Changes by release
 
+## Unreleased
+
+- Fix facts' names.
+
 ## 0.6.0 2026-02-13
 
 - Install Google Chrome using a remote .deb package on Debian.
